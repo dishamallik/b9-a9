@@ -30,9 +30,9 @@ const Slider = () => {
         }}
         navigation={true}
         modules={[Autoplay, Pagination, Navigation]}
-        className="mySwiper"
+        className="mySwiper container mx-auto"
       >
-        <div className='container mx-auto'>
+        <div className=''>
         <SwiperSlide><img src={img3} className="w-full lg:h-auto" />
         <p></p>
         

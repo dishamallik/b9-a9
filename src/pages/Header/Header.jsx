@@ -1,7 +1,9 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink  } from "react-router-dom";
+import useAuth from "../../hook/useAuth";
 
 
 const Header = () => {
+    const  {logout, user} = useAuth()
 
 const navLinks = <>
 <li ><NavLink to="/">Home</NavLink></li>
@@ -37,12 +39,27 @@ const navLinks = <>
     </ul>
   </div>
   <div className="navbar-end ">
-  <Link to="/login"> <button className="btn btn-outline bg-green-300">log in</button></Link>
-    <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-        <div className="w-10 rounded-full">
-          <img alt="Tailwind CSS Navbar component" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-        </div>
-      </div>
+  {
+   user? <div className="dropdown dropdown-end">
+   <div className="flex">
+   <div>
+   <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+     <div className="w-10 rounded-full">
+       <img alt="Tailwind CSS Navbar component" src={user.photoURL} />
+       <div className="absolute top-5 left-0 right-0 bg-opacity-50 transition-opacity opacity-0 hover:opacity-100">
+        <div className="text-black text-center py-2 ">{user.displayName}</div>
+    </div>
+     </div>
+   </div>
+   
+   </div>
+   <div onClick={logout} ><button className="btn ">logOut</button></div>
+   </div>
+   </div>
+      
+      :
+      <Link to="/login"> <button className="btn btn-outline bg-green-300">log in</button></Link>
+}
   </div>
 </div>
 </div>

@@ -6,6 +6,7 @@ import Update from "../pages/Update/Update";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import SocialLogin from "../pages/Login/SocialLogin";
+import PrivateRoute from "../pages/PrivateRoute/PrivateRoute";
 
 
 
@@ -21,7 +22,7 @@ const routes = createBrowserRouter([
         },
         {
             path: "/contact",
-            element:<Contact></Contact>,
+            element:<PrivateRoute><Contact></Contact></PrivateRoute>,
         },
         {
             path: "/update",
@@ -39,7 +40,8 @@ const routes = createBrowserRouter([
         {
             path: "/social",
             element: <SocialLogin></SocialLogin>
-        }
+        },
+       
       ]
     },
   ]);

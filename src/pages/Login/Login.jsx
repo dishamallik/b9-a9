@@ -1,4 +1,4 @@
-
+import {useNavigate, useLocation} from "react-router-dom";
 
 import { useForm } from "react-hook-form";
 
@@ -18,19 +18,25 @@ const Login = () => {
            
             formState: { errors },
           } = useForm()
+
+          // navigation 
+const navigate = useNavigate();
+const location = useLocation();
+
+const  from = location?.state || "/";
+// 
         
           const onSubmit = data => {
             const {email, password} = data;
 
             sigInUser(email, password)
             .then(result => {
-                console.log(result.user);
-
-            })
-            .catch(error =>{
-                console.log(error);
-
-            })
+                if(result.user){
+                 navigate(from);
+                }
+                
+             });
+            
 
           };
 

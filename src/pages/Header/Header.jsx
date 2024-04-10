@@ -45,7 +45,7 @@ const navLinks = <>
    <div>
    <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
      <div className="w-10 rounded-full">
-       <img alt="Tailwind CSS Navbar component" src={user.photoURL} />
+       <img alt="" src={user.photoURL} />
        <div className="absolute top-5 left-0 right-0 bg-opacity-50 transition-opacity opacity-0 hover:opacity-100">
         <div className="text-black text-center py-2 ">{user.displayName}</div>
     </div>

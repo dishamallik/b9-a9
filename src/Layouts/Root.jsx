@@ -8,7 +8,7 @@ const Root = () => {
             <Header></Header>
             <FirebaseProvider></FirebaseProvider>
             <Outlet></Outlet>
-           <div className="border-solid">
+           <div className=" mt-20">
            <Footer></Footer>
            </div>
         </div>

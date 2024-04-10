@@ -4,10 +4,13 @@ import { useForm } from "react-hook-form";
 import useAuth from "../../hook/useAuth";
 
 
+import {useNavigate, useLocation} from "react-router-dom";
+
+
 const Register = () => {
    
 
-    const {createUser} =useAuth();
+    const {createUser,  updateUserProfile} =useAuth();
 
     const {
         register,
@@ -15,14 +18,33 @@ const Register = () => {
       
         formState: { errors },
       } = useForm()
+
+
+// navigation 
+const navigate = useNavigate();
+const location = useLocation();
+
+const  from = location?.state || "/";
+// 
+
     
       const onSubmit = data => 
      {
-        const {email, password} = data
+        const {email, password, image , name} = data
+
+        // update profile
         createUser(email,password)
-        .then(result => {
-            console.log(result)
-        })
+        .then(() => {
+            updateUserProfile( name, image)
+            .then(() => {
+               
+                    navigate(from);
+                   
+
+            })
+           
+            
+         });
 
      };
     

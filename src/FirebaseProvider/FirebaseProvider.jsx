@@ -1,4 +1,4 @@
-import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import auth from "../firebase/firebase.config";
 
@@ -13,7 +13,7 @@ const GithubProvider = new GithubAuthProvider();
 
 const FirebaseProvider = ({children}) => {
     const [user, setUser] = useState(null);
-    console.log(user);
+ const [loading, setLoading] = useState(true)
    
     
 
@@ -21,25 +21,40 @@ const FirebaseProvider = ({children}) => {
 
 // create user
 const createUser = ( email, password) => {
+    setLoading(true)
      return createUserWithEmailAndPassword(auth, email, password)
 
 
 };
 
+
+// update user profile
+const updateUserProfile = (name, image) => {
+ return  updateProfile(auth.currentUser, {
+        displayName: name, photoURL: image
+      })
+}
+
+
+
+
 // sign in 
 const sigInUser = ( email, password) => {
+    setLoading(true)
     return signInWithEmailAndPassword(auth, email, password)
 };
 
 
 // goggle login
 const goggleLogin = () => {
+    setLoading(true)
     return signInWithPopup(auth, goggleProvider)
 
 }
 // github login
 
 const githubLogin = () => {
+    setLoading(true)
     return signInWithPopup(auth, GithubProvider)
 
 }
@@ -48,6 +63,7 @@ const githubLogin = () => {
 
 
 const logout = () =>{
+   
     setUser(null)
     signOut(auth)
 }
@@ -55,13 +71,15 @@ const logout = () =>{
 
 // observer
 useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
+  const unsubscribe =  onAuthStateChanged(auth, (user) => {
         if (user) {
           setUser(user)
+          setLoading(false)
           
           
         }
       });
+      return () =>unsubscribe();
 },[])
 
 
@@ -72,7 +90,11 @@ useEffect(() => {
         goggleLogin,
         githubLogin,
         logout,
-        user
+        user,
+        updateUserProfile,
+        loading
+
+
 
         
         

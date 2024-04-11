@@ -7,6 +7,7 @@ import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import SocialLogin from "../pages/Login/SocialLogin";
 import PrivateRoute from "../pages/PrivateRoute/PrivateRoute";
+import CardDetails from "../pages/CardDetails/CardDetails";
 
 
 
@@ -19,15 +20,16 @@ const routes = createBrowserRouter([
         {
             path: "/",
             element:<Home></Home>,
-            loader: () =>fetch('/cards.json')
+           
             
         },
-        // {
-        //     path:'/cards/:id',
-        //     element: <CardDetails></CardDetails>,
-        //     loader: () =>fetch('../cards.json')
+        {
+            path: '/card/:id',
+            element: <CardDetails></CardDetails>,
+            loader: () => fetch('../cards.json') 
 
-        // },
+        },
+        
         {
             path: "/contact",
             element:<PrivateRoute><Contact></Contact></PrivateRoute>,
@@ -49,10 +51,7 @@ const routes = createBrowserRouter([
             path: "/social",
             element: <SocialLogin></SocialLogin>
         },
-        // {
-        //     path: "/cards",
-        //     element: <Cards></Cards>
-        // }
+        
        
       ]
     },

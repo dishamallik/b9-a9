@@ -28,8 +28,8 @@ const Slider = () => {
         pagination={{
           clickable: true,
         }}
-        navigation={true}
-        modules={[Autoplay, Pagination, Navigation]}
+       
+        modules={[Autoplay, Pagination]}
         className="mySwiper container mx-auto"
       >
         <div className=''>

@@ -1,0 +1,51 @@
+[
+    {
+      "estate_title": "Luxury Hotel",
+      "id": 1,
+      "segment_name": "Hotel",
+      "description": "A luxurious hotel with breathtaking views and top-notch amenities.",
+      "price": "$500 per night",
+      "status": "sale",
+      "area": "5000 sq ft",
+      "location": "City Center",
+      "facilities": ["Spa", "Swimming Pool", "Gourmet Restaurant"],
+      "image": "https://i.ibb.co/BNH1HGj/hotel.jpg"
+    },
+    {
+      "estate_title": "Beachfront Resort",
+      "id": 2,
+      "segment_name": "Resort",
+      "description": "An exotic beachfront resort offering relaxation and adventure.",
+      "price": "$300 per night",
+      "status": "sale",
+      "area": "3000 sq ft",
+      "location": "Tropical Island",
+      "facilities": ["Private Beach", "Water Sports", "Beach Bar"],
+      "image": "https://i.ibb.co/TqS19pb/resort.jpg"
+    },
+    {
+      "estate_title": "Cozy Vacation Rental",
+      "id": 3,
+      "segment_name": "Vacation Rental",
+      "description": "A charming vacation rental nestled in the mountains.",
+      "price": "$200 per night",
+      "status": "rent",
+      "area": "1500 sq ft",
+      "location": "Mountain Retreat",
+      "facilities": ["Fireplace", "Scenic Views", "Hiking Trails"],
+      "image": "https://i.ibb.co/MNmJmwK/rental.jpg"
+    },
+    {
+      "estate_title": "Modern Motel",
+      "id": 4,
+      "segment_name": "Motel",
+      "description": "A modern motel with comfortable rooms and convenient amenities.",
+      "price": "$100 per night",
+      "status": "sale",
+      "area": "2000 sq ft",
+      "location": "Highway Exit",
+      "facilities": ["Free Wi-Fi", "Parking", "24-hour Reception"],
+      "image": "https://i.ibb.co/Rv0zkwC/motel.jpg"
+    }
+  ]
+  

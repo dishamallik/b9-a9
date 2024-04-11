@@ -1,11 +1,18 @@
+// import { useEffect, useState } from "react";
 import Slider from "../Slider/Slider";
-import {useLoaderData} from "react-router-dom";
-import Cards from "./Cards";
+
+// import Cards from "./Cards";
 
 
 const Home = () => {
-    const cards = useLoaderData()
-    // console.log(cards);
+    
+//   const [cards, setJobs] = useState([]);
+//   useEffect (() =>{
+
+//     fetch('cards.json')
+//     .then(res => res.json())
+//     .then(data => setJobs (data));
+//   }, [])
     
     return ( 
         <div>
@@ -20,7 +27,7 @@ const Home = () => {
 
 
            </div>
-           <div className= "container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5 ">
+           {/* <div className= "container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5 ">
             {
                 cards.map(aCards => <Cards key={aCards.id}
                     cards = {aCards}
@@ -29,7 +36,7 @@ const Home = () => {
                 </Cards>)
             }
            </div>
-           
+            */}
         </div>
     );
 };

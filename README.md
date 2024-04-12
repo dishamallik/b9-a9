@@ -14,9 +14,9 @@ Welcome to COZYSTAY, your ultimate destination for finding the perfect hotel, mo
 
 - ## NPM Packages Used:
 
-- **AOS:** 
-- **React Hook Form:** 
-- **Swiper:** 
+- **AOS Package** 
+- **React Hook Form** 
+- **Swiper Slider** 
 
 Currently, two official plugins are available:
 

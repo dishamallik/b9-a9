@@ -3,18 +3,13 @@ import {useNavigate, useLocation} from "react-router-dom";
 
 const SocialLogin = () => {
     const {goggleLogin, githubLogin} = useAuth();
-
-
-
-    
     const navigate = useNavigate();
     const location = useLocation();
     // console.log(location);
 const  from = location?.state || "/";
 
 const  handleSocialLogin = socialProvider => {
-    socialProvider()
-    .then(result => {
+    socialProvider().then(result => {
        if(result.user){
         navigate(from);
        }

@@ -7,21 +7,21 @@ export const AuthContext = createContext(null);
 // social providers
 const goggleProvider = new GoogleAuthProvider();
 const GithubProvider = new GithubAuthProvider();
-
+// 
 
 
 
 const FirebaseProvider = ({children}) => {
     const [user, setUser] = useState(null);
- const [loading, setLoading] = useState(true)
-   
+ const [loading, setLoading] = useState(true);
+   console.log(loading);
     
 
 
 
 // create user
 const createUser = ( email, password) => {
-    setLoading(true)
+    setLoading(true);
      return createUserWithEmailAndPassword(auth, email, password)
 
 
@@ -29,32 +29,33 @@ const createUser = ( email, password) => {
 
 
 // update user profile
-const updateUserProfile = (name, image) => {
- return  updateProfile(auth.currentUser, {
-        displayName: name, photoURL: image
-      })
-}
+// const updateUserProfile = (name, image) => {
+//  return  updateProfile(auth.currentUser, {
+//         displayName: name,
+//          photoURL: image
+//       })
+// }
 
 
 
 
 // sign in 
 const sigInUser = ( email, password) => {
-    setLoading(true)
+    setLoading(true);
     return signInWithEmailAndPassword(auth, email, password)
 };
 
 
 // goggle login
 const goggleLogin = () => {
-    setLoading(true)
+    setLoading(true);
     return signInWithPopup(auth, goggleProvider)
 
 }
 // github login
 
 const githubLogin = () => {
-    setLoading(true)
+    setLoading(true);
     return signInWithPopup(auth, GithubProvider)
 
 }
@@ -63,36 +64,45 @@ const githubLogin = () => {
 
 
 const logout = () =>{
-   
+    setLoading(false);
     setUser(null)
     signOut(auth)
 }
 
 
 // observer
+// useEffect(() => {
+//   const unsubscribe =  onAuthStateChanged(auth, (user) => {
+//         if (user) {
+//           setUser(user);
+//           setLoading(false)
+          
+          
+//         }
+//       });
+//       return () =>unsubscribe();
+// },[]);
+
+// observer
 useEffect(() => {
-  const unsubscribe =  onAuthStateChanged(auth, (user) => {
-        if (user) {
-          setUser(user)
-          setLoading(false)
-          
-          
-        }
+  const unsubscribe =  onAuthStateChanged(auth, user => {
+        console.log(user);
+        setUser(user);
+        setLoading(false);
       });
       return () =>unsubscribe();
-},[])
-
-
+},[]);
 
     const allValues = {
         createUser,
         sigInUser,
         goggleLogin,
         githubLogin,
+        loading,
         logout,
         user,
-        updateUserProfile,
-        loading
+        // updateUserProfile,
+       
 
 
 

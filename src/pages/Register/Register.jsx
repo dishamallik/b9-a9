@@ -14,8 +14,7 @@ import 'aos/dist/aos.css';
 const Register = () => {
    
 
-    const {createUser,  updateUserProfile} =useAuth();
-
+    const {createUser} =useAuth();
     const {
         register,
         handleSubmit,
@@ -34,20 +33,12 @@ const  from = location?.state || "/";
     
       const onSubmit = data => 
      {
-        const {email, password, image , name} = data
-
-        // update profile
+        const {email, password} = data;  
         createUser(email,password)
-        .then(() => {
-            updateUserProfile( name, image)
-            .then(() => {
-               
-                    navigate(from);
-                   
-
-            })
-           
-            
+        .then((result) => {
+           if(result.user){
+                navigate(from);
+            }
          });
 
      };
@@ -86,9 +77,9 @@ useEffect(()=>{
                   <span className="label-text">Name</span>
                 </label>
                 <input type="text" name="name" placeholder=" your name" className="input input-bordered" 
-                {...register("name", { required: true })}
+                {...register("fullName", { required: true })}
                 />
-                {errors.name && <span>This field is required</span>}
+                {errors.fullName && <span className="text-red-500">This field is required</span>}
               </div>
       
               <div className="form-control">
@@ -96,9 +87,9 @@ useEffect(()=>{
                   <span className="label-text">ImageUrl</span>
                 </label>
                 <input type="text" name="photo" placeholder="imageUrl" className="input input-bordered"
-                {...register("photo", { required: true })}
+                {...register("image", { required: true })}
                   />
-                  {errors.photo && <span>This field is required</span>}
+                  {errors.image && <span className="text-red-500">This field is required</span>}
               </div>
 
 
@@ -108,7 +99,7 @@ useEffect(()=>{
                 </label>
                 <input type="email" name="email" placeholder="email" className="input input-bordered"
                  {...register("email", { required: true })}  />
-                 {errors.email && <span>This field is required</span>}
+                 {errors.email && <span className="text-red-500">This field is required</span>}
               </div>
       
       
@@ -118,7 +109,7 @@ useEffect(()=>{
                 </label>
                 <input type="password" name="password" placeholder="password" className="input input-bordered" 
                 {...register("password", { required: true })} />
-                {errors.password && <span>This field is required</span>}
+                {errors.password && <span className="text-red-500">This field is required</span>}
                 <label className="label">
                   
                 </label>

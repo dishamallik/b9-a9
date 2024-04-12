@@ -8,8 +8,8 @@ const {user, loading} = useAuth();
 const location = useLocation();
 console.log(location);
 
-if(loading) {
-    return <span className="loading loading-spinner loading-lg"></span>
+if(loading){
+    return <span className="loading loading-dots loading-lg"></span>
 }
 
 if(!user){

@@ -1,6 +1,22 @@
-# React + Vite
+# COZYSTAY
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to COZYSTAY, your ultimate destination for finding the perfect hotel, motel, or resort for your next getaway!
+
+**Live Site URL:** 
+
+## Features and Characteristics:
+
+- **Comprehensive Search:** Easily search and filter through a wide range of hotels, motels, and resorts based on location, price, amenities, and more.
+- **User Reviews:** Get insights from real users with detailed reviews and ratings for each accommodation option.
+- **Instant Booking:** Securely book your stay directly through our platform with instant confirmation.
+- **Special Deals:** Discover exclusive deals and discounts for COZYSTAY users, ensuring you get the best value for your money.
+- **Responsive Design:** Enjoy a seamless browsing experience across all devices, whether you're using a desktop, tablet, or smartphone.
+
+- ## NPM Packages Used:
+
+- **AOS:** 
+- **React Hook Form:** 
+- **Swiper:** 
 
 Currently, two official plugins are available:
 

@@ -8,6 +8,7 @@ import Register from "../pages/Register/Register";
 import SocialLogin from "../pages/Login/SocialLogin";
 import PrivateRoute from "../pages/PrivateRoute/PrivateRoute";
 import CardDetails from "../pages/CardDetails/CardDetails";
+import Error from "../pages/Error/Error";
 
 
 
@@ -51,6 +52,9 @@ const routes = createBrowserRouter([
             path: "/social",
             element: <SocialLogin></SocialLogin>
         },
+        {
+            path: '*', element: <Error />
+          }
         
        
       ]

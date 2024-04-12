@@ -1,10 +1,20 @@
 import { Link } from "react-router-dom";
 import useAuth from "../../hook/useAuth";
-
+import {Helmet} from "react-helmet";
 
 const Update = () => {
     const  { user} = useAuth()
     return (
+
+<div>
+
+<Helmet>
+                <meta charSet="utf-8" />
+                <title>Update -COZYSTAY</title>
+                <link rel="canonical" href="http://mysite.com/example" />
+            </Helmet>
+
+
        <div className="container mx-auto w-auto lg:w-1/3">
      { 
      user? <div className="hero min-h-screen bg-green-50 mt-5 mb-10 shadow-2xl">
@@ -30,6 +40,7 @@ const Update = () => {
 }
 
         
+        </div>
         </div>
       
     );

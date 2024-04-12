@@ -1,10 +1,21 @@
 import { FaTwitter } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa";
 import { IoLogoGithub } from "react-icons/io5";
+import {Helmet} from "react-helmet";
 
 const Contact = () => {
     return (
-        <div className="container mx-auto py-8 bg-green-100">
+<div>
+<Helmet>
+                <meta charSet="utf-8" />
+                <title>Contact- COZYSTAY</title>
+                <link rel="canonical" href="http://mysite.com/example" />
+            </Helmet>
+
+
+        <div className="container mx-auto py-8 bg-green-100" data-aos="fade-right"
+        data-aos-offset="300"
+        data-aos-easing="ease-in-sine">
       <h1 className="text-3xl font-bold mb-8 text-center font-poppins">Contact Us</h1>
       <div className="max-w-lg mx-auto bg-orange-50 rounded-lg shadow-lg p-6 text-center">
         <div className="mb-6">
@@ -25,6 +36,7 @@ const Contact = () => {
           
         </div>
       </div>
+    </div>
     </div>
     );
 };

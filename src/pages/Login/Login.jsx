@@ -7,7 +7,13 @@ import { Link } from "react-router-dom";
 import SocialLogin from "./SocialLogin";
 
 
+import {Helmet} from "react-helmet";
+import { useEffect } from "react";
 
+
+// aos 
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
 
 const Login = () => {
    
@@ -39,11 +45,25 @@ const  from = location?.state || "/";
             
 
           };
+// aos
+useEffect(()=>{
+    AOS.init({duration: "1500"})
 
+},[])
     
     
     return (
-        <div className="hero min-h-screen bg-base-200">
+
+<div>
+<Helmet>
+                <meta charSet="utf-8" />
+                <title>login-COZYSTAY</title>
+                <link rel="canonical" href="http://mysite.com/example" />
+            </Helmet>
+
+
+        
+        <div className="hero min-h-screen bg-base-200" data-aos="zoom-in-up">
   <div className="hero-content flex-col ">
     <div className="text-left">
       <h1 className="text-5xl  text-green-800 font-bold">Login now!</h1>
@@ -92,6 +112,8 @@ const  from = location?.state || "/";
      
     </div>
   </div>
+</div>
+
 </div>
     );
 

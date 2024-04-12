@@ -11,9 +11,9 @@ const Card = ({card}) => {
 
 <div className="">
         
-        <div className=" h-auto  card   bg-blue-50 shadow-2xl ">
+        <div className=" h-auto  card   bg-blue-50 shadow-2xl  "  >
    <figure className="">
-     <img src={image} alt="Shoes" className="rounded-xl w-4/5" />
+     <img src={image} alt="Shoes" className="rounded-xl w-4/5"   />
    </figure>
   <div className="px-10">
    <div className="flex gap-5" >

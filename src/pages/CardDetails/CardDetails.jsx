@@ -1,5 +1,10 @@
 import { FaChartArea, FaLocationDot } from "react-icons/fa6";
 import {useLoaderData, useParams} from "react-router-dom";
+import {Helmet} from "react-helmet";
+import { useEffect } from "react";
+// aos 
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
 
 const CardDetails = () => {
     const cards = useLoaderData();
@@ -8,10 +13,27 @@ const CardDetails = () => {
     const card = cards.find(card => card.id === idInt);
 
     console.log(card);
+// aos
+    useEffect(()=>{
+        AOS.init({duration: "1500"})
+    
+    },[])
+
+
+
+
+
     return (
         <div>
+
+<Helmet>
+                <meta charSet="utf-8" />
+                <title>{card.segment_name}-COZYSTAY</title>
+                <link rel="canonical" href="http://mysite.com/example" />
+            </Helmet>
             
-            <div className="container mx-auto mt-10  hero  min-h-screen shadow-2xl bg-blue-50">
+            <div className="container mx-auto mt-10  hero  min-h-screen shadow-2xl bg-blue-50" 
+     data-aos="slide-right">
   <div className="hero-content flex-col lg:flex-row">
     <img src={card.image} className="max-w-xs md:max-w-lg lg:max-w-lg rounded-lg shadow-2xl" />
     <div>

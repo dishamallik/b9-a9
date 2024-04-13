@@ -14,7 +14,7 @@ import 'aos/dist/aos.css';
 const Register = () => {
    
 
-    const {createUser} =useAuth();
+    const {createUser, updateUserProfile} =useAuth();
     const {
         register,
         handleSubmit,
@@ -33,12 +33,14 @@ const  from = location?.state || "/";
     
       const onSubmit = data => 
      {
-        const {email, password} = data;  
+        const {email, password, image, fullName} = data;  
         createUser(email,password)
-        .then((result) => {
-           if(result.user){
+        .then(() => {
+            updateUserProfile(fullName, image)
+            .then(() => {
                 navigate(from);
-            }
+            });
+          
          });
 
      };

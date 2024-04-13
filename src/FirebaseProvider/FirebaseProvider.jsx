@@ -13,6 +13,7 @@ const GithubProvider = new GithubAuthProvider();
 
 const FirebaseProvider = ({children}) => {
     const [user, setUser] = useState(null);
+    console.log(user);
  const [loading, setLoading] = useState(true);
    console.log(loading);
     
@@ -29,12 +30,12 @@ const createUser = ( email, password) => {
 
 
 // update user profile
-// const updateUserProfile = (name, image) => {
-//  return  updateProfile(auth.currentUser, {
-//         displayName: name,
-//          photoURL: image
-//       })
-// }
+const updateUserProfile = (name, image) => {
+ return  updateProfile(auth.currentUser, {
+        displayName: name,
+         photoURL: image
+      })
+};
 
 
 
@@ -101,7 +102,7 @@ useEffect(() => {
         loading,
         logout,
         user,
-        // updateUserProfile,
+        updateUserProfile,
        
 
 

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import {Helmet} from "react-helmet";
 import { useForm } from "react-hook-form";
 import useAuth from "../../hook/useAuth";
-
+import  { useState } from 'react';
 
 import {useNavigate, useLocation} from "react-router-dom";
 import { useEffect } from "react";
@@ -12,6 +12,25 @@ import AOS from 'aos';
 import 'aos/dist/aos.css'; 
 
 const Register = () => {
+    // error massage
+    
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
+  
+    const handleRegister = () => {
+      // Check if password meets requirements
+      const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+      if (!passwordRegex.test(password)) {
+        setError('Password must contain at least one uppercase letter, one lowercase letter, and be at least 6 characters long');
+        
+      }
+  
+      else {
+     
+        alert('Registered successfully!');
+      }
+    };
+  
    
 
     const {createUser, updateUserProfile} =useAuth();
@@ -109,14 +128,15 @@ useEffect(()=>{
                 <label className="label">
                   <span className="label-text">Password</span>
                 </label>
-                <input type="password" name="password" placeholder="password" className="input input-bordered" 
+                <input type="password" name="password" placeholder="password" onChange={(e) => setPassword(e.target.value)} className="input input-bordered" 
                 {...register("password", { required: true })} />
                 {errors.password && <span className="text-red-500">This field is required</span>}
                 <label className="label">
                   
                 </label>
               </div>
-              <div className="form-control mt-6">
+              {error && <p className="text-red-500 mb-4">{error}</p>}
+              <div onClick={handleRegister} className="form-control mt-6">
                 <button className="btn btn-primary">Register</button>
               </div>
               <p>You already have account? please <Link to="/login">log in</Link></p>

@@ -16,22 +16,21 @@ import AOS from 'aos';
 import 'aos/dist/aos.css'; 
 
 const Login = (user) => {
-// error alert
+// error massage
 const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
   const handleLogin = () => {
-    // Check email and password validity
+    
     if (email === user.email && password === user.password) {
-      // Successful login
+   
       alert('Login successful!');
     } else {
-      // Display error message
+     
       setError('Invalid email or password');
     }
   };
-
 
 
    
@@ -94,8 +93,7 @@ useEffect(()=>{
           <label className="label">
             <span className="label-text">Email</span>
           </label>
-          <input type="email" name="email" placeholder="email" 
-          onChange={(e) => setEmail(e.target.value)} className="input input-bordered" 
+          <input type="email" name="email" placeholder="email" onChange={(e) => setEmail(e.target.value)} className="input input-bordered" 
           {...register("email", { required: true })}
           />
           {errors.email && <span>This field is required</span>}
@@ -106,8 +104,7 @@ useEffect(()=>{
           <label className="label">
             <span className="label-text">Password</span>
           </label>
-          <input type="password" name="password" placeholder="password" 
-          onChange={(e) => setPassword(e.target.value)} className="input input-bordered" 
+          <input type="password" name="password" placeholder="password" onChange={(e) => setPassword(e.target.value)} className="input input-bordered" 
           {...register("password", { required: true })} 
           />
           {errors.password && <span>This field is required</span>}
@@ -116,7 +113,7 @@ useEffect(()=>{
           </label>
         </div>
         {error && <p className="text-red-500 mb-4">{error}</p>}
-        <div  onClick={handleLogin}  className="form-control mt-6">
+        <div onClick={handleLogin} className="form-control mt-6">
           <button className="btn btn-primary">Login</button>
         </div>
         <p>new to COZYSTAY? please <Link to="/register">Register</Link></p>

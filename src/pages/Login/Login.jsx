@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import useAuth from "../../hook/useAuth";
 import { Link } from "react-router-dom";
 import SocialLogin from "./SocialLogin";
-
+import Swal from 'sweetalert2';
 
 import {Helmet} from "react-helmet";
 import { useEffect } from "react";
@@ -26,9 +26,6 @@ const [email, setEmail] = useState('');
     if (email === user.email && password === user.password) {
    
       alert('Login successful!');
-    } else {
-     
-      setError('Invalid email or password');
     }
   };
 
@@ -55,10 +52,23 @@ const  from = location?.state || "/";
             sigInUser(email, password)
             .then(result => {
                 if(result.user){
-                 navigate(from);
-                }
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Login Successful!',
+                        text: 'You have been successfully Login.',
+                        confirmButtonText: 'OK'
+                    }).then(() => {
+                        navigate(from);
+                    });
+                 
+                } 
                 
-             });
+                
+             })
+             .catch(error => {
+                setError('Invalid email or password');
+                console.error('Login Error:', error); 
+            });
             
 
           };

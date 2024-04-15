@@ -68,21 +68,10 @@ const logout = () =>{
     setLoading(false);
     setUser(null)
     signOut(auth)
-}
+};
 
 
-// observer
-// useEffect(() => {
-//   const unsubscribe =  onAuthStateChanged(auth, (user) => {
-//         if (user) {
-//           setUser(user);
-//           setLoading(false)
-          
-          
-//         }
-//       });
-//       return () =>unsubscribe();
-// },[]);
+
 
 // observer
 useEffect(() => {
@@ -103,6 +92,7 @@ useEffect(() => {
         logout,
         user,
         updateUserProfile,
+       
        
 
 

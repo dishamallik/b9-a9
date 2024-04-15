@@ -1,13 +1,16 @@
 
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
+
+
+
 const firebaseConfig = {
-  apiKey: "AIzaSyDXFEHc5h6JLie4M3c6kfAoI-WpPv_m7YI",
-  authDomain: "b9a9-real-estate-caded.firebaseapp.com",
-  projectId: "b9a9-real-estate-caded",
-  storageBucket: "b9a9-real-estate-caded.appspot.com",
-  messagingSenderId: "24512710850",
-  appId: "1:24512710850:web:fc48ec1a60e052eabf935b"
+  apiKey: import.meta.env.VITE_APIKEY,
+  authDomain: import.meta.env.VITE_AUTHDOMAIN,
+  projectId: import.meta.env.VITE_PROJECTID,
+  storageBucket: import.meta.env.VITE_STORAGEBUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGINGSENDERID,
+  appId: import.meta.env.VITE_APPID,
 };
 
 // Initialize Firebase

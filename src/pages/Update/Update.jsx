@@ -26,7 +26,7 @@ useEffect(()=>{
             </Helmet>
 
 <div className="">
-<div className="card sm:mx-20 md:mx-40 lg:mx-60 item-center bg-blue-100 mt-5 shadow-xl" data-aos="zoom-in-up">
+<div className="card sm:mx- md:mx-40 lg:mx-60 item-center bg-blue-100 mt-5 shadow-xl" data-aos="zoom-in-up">
   <div><h1 className="text-center font-bold font-poppins lg:text-4xl text-blue-800">User profile</h1></div>
 
   <figure className="px-10 pt-10">

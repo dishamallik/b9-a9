@@ -2,7 +2,7 @@
 
 Welcome to COZYSTAY, your ultimate destination for finding the perfect hotel, motel, or resort for your next getaway!
 
-**Live Site URL:** 
+**Live Site URL:** https://b9a9-real-estate-caded.web.app
 
 ## Features and Characteristics:
 
